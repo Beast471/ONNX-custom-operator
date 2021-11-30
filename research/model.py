@@ -98,10 +98,10 @@ class myModel(torch.nn.Module):
     return embedding 
 
 """store image paths in list"""
-images= sorted(os.listdir('../Challenge_images'))
+images= sorted(os.listdir('path to images')) 
 img_paths = []
 for idx in range(len(images)):
-  img_paths.append(os.path.join('../Challenge_images', images[idx]))
+  img_paths.append(os.path.join('path to images', images[idx]))
 
 data_transforms = transforms.Compose([
     transforms.Resize(440),
@@ -158,5 +158,5 @@ for i in tqdm(range(0,len(img_paths))):
 
 """creating dataframe of obtained result and store in current directory"""
 df = pd.DataFrame({'image name' : dissimilar_img_record.keys(), 'dis-similar images' : dissimilar_img_record.values() })
-df.to_csv(r'./result.csv', index=False)
+df.to_csv(r'path to images/result.csv', index=False)
 print(df.to_string(index=False))

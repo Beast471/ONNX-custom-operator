@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.1)
+project(image_similarity)
+set(CMAKE_PREFIX_PATH ../libtorch)
+find_package(Torch REQUIRED)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+add_executable(image_similarity reduction.cpp)
+target_link_libraries(image_similarity "${TORCH_LIBRARIES}")
+set_property(TARGET image_similarity PROPERTY CXX_STANDARD 14)
